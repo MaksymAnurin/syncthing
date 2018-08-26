@@ -90,3 +90,11 @@ func TestIsWindows83(t *testing.T) {
 		}
 	}
 }
+
+func TestWindowsFolderRoot(t *testing.T) {
+	fs := BasicFileSystem{root: `c:\test`}
+	rooted := fs.rooted(".")
+	if rooted != `c:\test` {
+		t.Error("Incorrect root:", rooted)
+	}
+}
